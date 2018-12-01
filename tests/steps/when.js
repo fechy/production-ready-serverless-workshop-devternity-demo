@@ -95,6 +95,7 @@ const we_invoke_get_index = async () => {
 
   return res
 }
+
 const we_invoke_get_restaurants = async () => {
   const res =
     mode === 'handler' 
@@ -103,6 +104,7 @@ const we_invoke_get_restaurants = async () => {
 
   return res
 }
+
 const we_invoke_search_restaurants = async (theme) => {
   const body = JSON.stringify({ theme })
 
