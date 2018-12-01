@@ -4,10 +4,10 @@ phases:
   install:
     commands:
       - npm install
-      - STAGE=$STAGE REGION=$REGION node seed-restaurants.js
   build:
     commands:
       - npm run sls -- deploy -s $STAGE -r $REGION
+      - STAGE=$STAGE REGION=$REGION node seed-restaurants.js
   post_build:
     commands:
       - npm run test
