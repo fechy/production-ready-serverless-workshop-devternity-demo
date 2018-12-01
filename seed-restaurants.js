@@ -49,7 +49,12 @@ let restaurants = [
 ];
 
 const getTableName = async () => {
-  return `restaurants-${STAGE}-fgiovanini`
+  console.log('getting table name...')
+  const req = {
+    Name: `/workshop-fgiovanini/${STAGE}/table_name`
+  }
+  const ssmResp = await ssm.getParameter(req).promise()
+  return ssmResp.Parameter.Value
 }
 
 const run = async () => {
@@ -70,4 +75,4 @@ const run = async () => {
   await dynamodb.batchWrite(req).promise()
 }
 
-run().then(() => console.log("all done")).catch(err => console.error(err.message))
+run().then(() => console.log("all done")).catch(console.error)
