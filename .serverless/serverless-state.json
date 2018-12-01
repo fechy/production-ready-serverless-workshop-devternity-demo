@@ -23,23 +23,6 @@
               "Arn"
             ]
           }
-        },
-        {
-          "Effect": "Allow",
-          "Action": "kinesis:PutRecord",
-          "Resource": {
-            "Fn::GetAtt": [
-              "orderEventsStream",
-              "Arn"
-            ]
-          }
-        },
-        {
-          "Effect": "Allow",
-          "Action": "sns:Publish",
-          "Resource": {
-            "Ref": "restaurantNotificationTopic"
-          }
         }
       ],
       "versionFunctions": true,
@@ -165,12 +148,6 @@
                         "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][0]"
                       },
                       {
-                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][1]"
-                      },
-                      {
-                        "$ref": "$[\"service\"][\"provider\"][\"iamRoleStatements\"][2]"
-                      },
-                      {
                         "Effect": "Allow",
                         "Action": [
                           "kinesis:GetRecords",
@@ -214,7 +191,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-get-index",
               "Handler": "functions/get-index.handler",
@@ -271,14 +248,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetDashindexLambdaVersionzeK6c2VF8I36u5sG93Iv6MYGtFNvOoyrSacHL0TOsQ": {
+          "GetDashindexLambdaVersionytOC8oxbMz5UlVkuoeHJSABNLB0OCgFdlLd6Vr8w": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashindexLambdaFunction"
               },
-              "CodeSha256": "q4I7QWP50d7GyPe2Y2tP1f6/mdw1FENFYqWLEzhONgs="
+              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
             }
           },
           "GetDashrestaurantsLambdaFunction": {
@@ -288,7 +265,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-get-restaurants",
               "Handler": "functions/get-restaurants.handler",
@@ -320,14 +297,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetDashrestaurantsLambdaVersionpjncY0v7koSbK7131l5ehKV4fDJV0TVC8TIpbzElwo": {
+          "GetDashrestaurantsLambdaVersionmM28DZYGaJ9Zljrq3mVqclqcvqE71o2tgGMgXjQPDw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "q4I7QWP50d7GyPe2Y2tP1f6/mdw1FENFYqWLEzhONgs="
+              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
             }
           },
           "SearchDashrestaurantsLambdaFunction": {
@@ -337,14 +314,14 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-search-restaurants",
               "Handler": "functions/search-restaurants.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
+                  "SearchDashrestaurantsIamRoleLambdaExecution",
                   "Arn"
                 ]
               },
@@ -365,18 +342,18 @@
               }
             },
             "DependsOn": [
-              "SearchDashrestaurantsLogGroup",
-              "IamRoleLambdaExecution"
+              "SearchDashrestaurantsIamRoleLambdaExecution",
+              "SearchDashrestaurantsLogGroup"
             ]
           },
-          "SearchDashrestaurantsLambdaVersionVytYvUXUStIWLJyRDtE8IRUtgYPNTvUusrud3ZVVFds": {
+          "SearchDashrestaurantsLambdaVersionUvjeJecdZOp0VSTOODXtZW3mk8QbWMDo8ZvSN979NU": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SearchDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "q4I7QWP50d7GyPe2Y2tP1f6/mdw1FENFYqWLEzhONgs="
+              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
             }
           },
           "PlaceDashorderLambdaFunction": {
@@ -386,14 +363,14 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-place-order",
               "Handler": "functions/place-order.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
+                  "PlaceDashorderIamRoleLambdaExecution",
                   "Arn"
                 ]
               },
@@ -414,18 +391,18 @@
               }
             },
             "DependsOn": [
-              "PlaceDashorderLogGroup",
-              "IamRoleLambdaExecution"
+              "PlaceDashorderIamRoleLambdaExecution",
+              "PlaceDashorderLogGroup"
             ]
           },
-          "PlaceDashorderLambdaVersionvnOgyhytU9BG0ERE5mZtyiTGIVwNOMxgFZMXrQUlA": {
+          "PlaceDashorderLambdaVersionuwVEEz3G7YKBbeBiJuhq1T5A782rze9XBGvWF3TezY": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PlaceDashorderLambdaFunction"
               },
-              "CodeSha256": "q4I7QWP50d7GyPe2Y2tP1f6/mdw1FENFYqWLEzhONgs="
+              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
             }
           },
           "NotifyDashrestaurantLambdaFunction": {
@@ -435,14 +412,14 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-notify-restaurant",
               "Handler": "functions/notify-restaurant.handler",
               "MemorySize": 1024,
               "Role": {
                 "Fn::GetAtt": [
-                  "IamRoleLambdaExecution",
+                  "NotifyDashrestaurantIamRoleLambdaExecution",
                   "Arn"
                 ]
               },
@@ -466,18 +443,18 @@
               }
             },
             "DependsOn": [
-              "NotifyDashrestaurantLogGroup",
-              "IamRoleLambdaExecution"
+              "NotifyDashrestaurantIamRoleLambdaExecution",
+              "NotifyDashrestaurantLogGroup"
             ]
           },
-          "NotifyDashrestaurantLambdaVersionRJJmLR6i7Ct6qoPwIX9L1HHLUfCDr0QtKUsmRUA3yw0": {
+          "NotifyDashrestaurantLambdaVersionDn5a7zwzzPP55kAS31eSe6iOii3NaoBytdxD9uFa2lQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "NotifyDashrestaurantLambdaFunction"
               },
-              "CodeSha256": "q4I7QWP50d7GyPe2Y2tP1f6/mdw1FENFYqWLEzhONgs="
+              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
             }
           },
           "ApiGatewayRestApi": {
@@ -708,7 +685,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1543668974549": {
+          "ApiGatewayDeployment1543670903338": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -913,7 +890,7 @@
           },
           "NotifyDashrestaurantEventSourceMappingKinesisOrderEventsStream": {
             "Type": "AWS::Lambda::EventSourceMapping",
-            "DependsOn": "IamRoleLambdaExecution",
+            "DependsOn": "NotifyDashrestaurantIamRoleLambdaExecution",
             "Properties": {
               "BatchSize": 10,
               "EventSourceArn": {
@@ -932,10 +909,265 @@
               "Enabled": "True"
             }
           },
+          "SearchDashrestaurantsIamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "dev",
+                        "workshop-fgiovanini",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/workshop-fgiovanini-dev-search-restaurants:*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": "dynamodb:scan",
+                        "Resource": {
+                          "Fn::GetAtt": [
+                            "restaurantsTable",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "workshop-fgiovanini",
+                    "dev",
+                    "search-restaurants",
+                    {
+                      "Fn::Sub": "${AWS::Region}"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              },
+              "ManagedPolicyArns": []
+            }
+          },
+          "PlaceDashorderIamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "dev",
+                        "workshop-fgiovanini",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/workshop-fgiovanini-dev-place-order:*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": "kinesis:PutRecord",
+                        "Resource": {
+                          "Fn::GetAtt": [
+                            "orderEventsStream",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "workshop-fgiovanini",
+                    "dev",
+                    "place-order",
+                    {
+                      "Fn::Sub": "${AWS::Region}"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              },
+              "ManagedPolicyArns": []
+            }
+          },
+          "NotifyDashrestaurantIamRoleLambdaExecution": {
+            "Type": "AWS::IAM::Role",
+            "Properties": {
+              "AssumeRolePolicyDocument": {
+                "Version": "2012-10-17",
+                "Statement": [
+                  {
+                    "Effect": "Allow",
+                    "Principal": {
+                      "Service": [
+                        "lambda.amazonaws.com"
+                      ]
+                    },
+                    "Action": [
+                      "sts:AssumeRole"
+                    ]
+                  }
+                ]
+              },
+              "Policies": [
+                {
+                  "PolicyName": {
+                    "Fn::Join": [
+                      "-",
+                      [
+                        "dev",
+                        "workshop-fgiovanini",
+                        "lambda"
+                      ]
+                    ]
+                  },
+                  "PolicyDocument": {
+                    "Version": "2012-10-17",
+                    "Statement": [
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "logs:CreateLogStream",
+                          "logs:PutLogEvents"
+                        ],
+                        "Resource": [
+                          {
+                            "Fn::Sub": "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/workshop-fgiovanini-dev-notify-restaurant:*:*"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": [
+                          "kinesis:GetRecords",
+                          "kinesis:GetShardIterator",
+                          "kinesis:DescribeStream",
+                          "kinesis:ListStreams"
+                        ],
+                        "Resource": [
+                          {
+                            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"IamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][3][\"Resource\"][0]"
+                          }
+                        ]
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": "kinesis:PutRecord",
+                        "Resource": {
+                          "Fn::GetAtt": [
+                            "orderEventsStream",
+                            "Arn"
+                          ]
+                        }
+                      },
+                      {
+                        "Effect": "Allow",
+                        "Action": "sns:Publish",
+                        "Resource": {
+                          "Ref": "restaurantNotificationTopic"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ],
+              "Path": "/",
+              "RoleName": {
+                "Fn::Join": [
+                  "-",
+                  [
+                    "workshop-fgiovanini",
+                    "dev",
+                    "notify-restaurant",
+                    {
+                      "Fn::Sub": "${AWS::Region}"
+                    },
+                    "lambdaRole"
+                  ]
+                ]
+              },
+              "ManagedPolicyArns": []
+            }
+          },
           "restaurantsTable": {
             "Type": "AWS::DynamoDB::Table",
             "Properties": {
-              "TableName": "workshop-fgiovanini-dev-restaurants",
+              "TableName": "restaurants-dev-fgiovanini",
               "AttributeDefinitions": [
                 {
                   "AttributeName": "name",
@@ -988,31 +1220,31 @@
           "GetDashindexLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashindexLambdaVersionzeK6c2VF8I36u5sG93Iv6MYGtFNvOoyrSacHL0TOsQ"
+              "Ref": "GetDashindexLambdaVersionytOC8oxbMz5UlVkuoeHJSABNLB0OCgFdlLd6Vr8w"
             }
           },
           "GetDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashrestaurantsLambdaVersionpjncY0v7koSbK7131l5ehKV4fDJV0TVC8TIpbzElwo"
+              "Ref": "GetDashrestaurantsLambdaVersionmM28DZYGaJ9Zljrq3mVqclqcvqE71o2tgGMgXjQPDw"
             }
           },
           "SearchDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SearchDashrestaurantsLambdaVersionVytYvUXUStIWLJyRDtE8IRUtgYPNTvUusrud3ZVVFds"
+              "Ref": "SearchDashrestaurantsLambdaVersionUvjeJecdZOp0VSTOODXtZW3mk8QbWMDo8ZvSN979NU"
             }
           },
           "PlaceDashorderLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PlaceDashorderLambdaVersionvnOgyhytU9BG0ERE5mZtyiTGIVwNOMxgFZMXrQUlA"
+              "Ref": "PlaceDashorderLambdaVersionuwVEEz3G7YKBbeBiJuhq1T5A782rze9XBGvWF3TezY"
             }
           },
           "NotifyDashrestaurantLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "NotifyDashrestaurantLambdaVersionRJJmLR6i7Ct6qoPwIX9L1HHLUfCDr0QtKUsmRUA3yw0"
+              "Ref": "NotifyDashrestaurantLambdaVersionDn5a7zwzzPP55kAS31eSe6iOii3NaoBytdxD9uFa2lQ"
             }
           },
           "ServiceEndpoint": {
@@ -1057,7 +1289,8 @@
       "vpc": {}
     },
     "plugins": [
-      "serverless-pseudo-parameters"
+      "serverless-pseudo-parameters",
+      "serverless-iam-roles-per-function"
     ],
     "pluginsData": {},
     "functions": {
@@ -1144,6 +1377,11 @@
             "Ref": "restaurantsTable"
           }
         },
+        "iamRoleStatements": [
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"SearchDashrestaurantsIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          }
+        ],
         "name": "workshop-fgiovanini-dev-search-restaurants",
         "package": {},
         "memory": 1024,
@@ -1167,6 +1405,11 @@
             "Ref": "orderEventsStream"
           }
         },
+        "iamRoleStatements": [
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"PlaceDashorderIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][1]"
+          }
+        ],
         "name": "workshop-fgiovanini-dev-place-order",
         "package": {},
         "memory": 1024,
@@ -1181,7 +1424,7 @@
             "stream": {
               "type": "kinesis",
               "arn": {
-                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"IamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][5][\"Resource\"][0]"
+                "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"IamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][3][\"Resource\"][0]"
               }
             }
           }
@@ -1194,6 +1437,14 @@
             "Ref": "restaurantNotificationTopic"
           }
         },
+        "iamRoleStatements": [
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"NotifyDashrestaurantIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][2]"
+          },
+          {
+            "$ref": "$[\"service\"][\"provider\"][\"compiledCloudFormationTemplate\"][\"Resources\"][\"NotifyDashrestaurantIamRoleLambdaExecution\"][\"Properties\"][\"Policies\"][0][\"PolicyDocument\"][\"Statement\"][3]"
+          }
+        ],
         "name": "workshop-fgiovanini-dev-notify-restaurant",
         "package": {},
         "memory": 1024,
@@ -1207,7 +1458,7 @@
         "restaurantsTable": {
           "Type": "AWS::DynamoDB::Table",
           "Properties": {
-            "TableName": "workshop-fgiovanini-dev-restaurants",
+            "TableName": "restaurants-dev-fgiovanini",
             "AttributeDefinitions": [
               {
                 "AttributeName": "name",
@@ -1257,7 +1508,7 @@
     "artifact": "/Users/fernando.giovanini/projects/devternity/production-ready-serverless-workshop-devternity-demo/.serverless/workshop-fgiovanini.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/workshop-fgiovanini/dev/1543668974353-2018-12-01T12:56:14.353Z",
+    "artifactDirectoryName": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z",
     "artifact": "workshop-fgiovanini.zip"
   }
 }
