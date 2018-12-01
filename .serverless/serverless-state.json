@@ -10,6 +10,9 @@
       "variableSyntax": "\\${([ ~:a-zA-Z0-9._'\",\\-\\/\\(\\)]+?)}",
       "name": "aws",
       "runtime": "nodejs8.10",
+      "environment": {
+        "log_level": "DEBUG"
+      },
       "tags": {
         "TEAM": "test"
       },
@@ -191,7 +194,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-get-index",
               "Handler": "functions/get-index.handler",
@@ -212,6 +215,7 @@
               ],
               "Environment": {
                 "Variables": {
+                  "log_level": "DEBUG",
                   "restaurants_api": {
                     "Fn::Join": [
                       "",
@@ -248,14 +252,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetDashindexLambdaVersionytOC8oxbMz5UlVkuoeHJSABNLB0OCgFdlLd6Vr8w": {
+          "GetDashindexLambdaVersiontCNeYSu3gMcOxSb0gqhmzxiFt1jAz1dcOSalC0k2Pw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashindexLambdaFunction"
               },
-              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
+              "CodeSha256": "O72iSU0SWxej3/bVXOP6SKmgrY6omY8Ybu1aP0RQdGs="
             }
           },
           "GetDashrestaurantsLambdaFunction": {
@@ -265,7 +269,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-get-restaurants",
               "Handler": "functions/get-restaurants.handler",
@@ -286,6 +290,7 @@
               ],
               "Environment": {
                 "Variables": {
+                  "log_level": "DEBUG",
                   "restaurants_table": {
                     "Ref": "restaurantsTable"
                   }
@@ -297,14 +302,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GetDashrestaurantsLambdaVersionmM28DZYGaJ9Zljrq3mVqclqcvqE71o2tgGMgXjQPDw": {
+          "GetDashrestaurantsLambdaVersionMjh4lXkWlZKObBLl5E07cheEiAgE8rPeVBmUxrUfco": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GetDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
+              "CodeSha256": "O72iSU0SWxej3/bVXOP6SKmgrY6omY8Ybu1aP0RQdGs="
             }
           },
           "SearchDashrestaurantsLambdaFunction": {
@@ -314,7 +319,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-search-restaurants",
               "Handler": "functions/search-restaurants.handler",
@@ -335,6 +340,7 @@
               ],
               "Environment": {
                 "Variables": {
+                  "log_level": "DEBUG",
                   "restaurants_table": {
                     "Ref": "restaurantsTable"
                   }
@@ -346,14 +352,14 @@
               "SearchDashrestaurantsLogGroup"
             ]
           },
-          "SearchDashrestaurantsLambdaVersionUvjeJecdZOp0VSTOODXtZW3mk8QbWMDo8ZvSN979NU": {
+          "SearchDashrestaurantsLambdaVersionSsq6tBbm9btdTzoRH45dmC8RNnK1tzi1BM4KBos4Ek": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SearchDashrestaurantsLambdaFunction"
               },
-              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
+              "CodeSha256": "O72iSU0SWxej3/bVXOP6SKmgrY6omY8Ybu1aP0RQdGs="
             }
           },
           "PlaceDashorderLambdaFunction": {
@@ -363,7 +369,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-place-order",
               "Handler": "functions/place-order.handler",
@@ -384,6 +390,7 @@
               ],
               "Environment": {
                 "Variables": {
+                  "log_level": "DEBUG",
                   "order_events_stream": {
                     "Ref": "orderEventsStream"
                   }
@@ -395,14 +402,14 @@
               "PlaceDashorderLogGroup"
             ]
           },
-          "PlaceDashorderLambdaVersionuwVEEz3G7YKBbeBiJuhq1T5A782rze9XBGvWF3TezY": {
+          "PlaceDashorderLambdaVersionwzS8jLYzAN5m1s4kkI8FfLBq9BIIt14fkMP1LH8ZCMQ": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "PlaceDashorderLambdaFunction"
               },
-              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
+              "CodeSha256": "O72iSU0SWxej3/bVXOP6SKmgrY6omY8Ybu1aP0RQdGs="
             }
           },
           "NotifyDashrestaurantLambdaFunction": {
@@ -412,7 +419,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z/workshop-fgiovanini.zip"
+                "S3Key": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z/workshop-fgiovanini.zip"
               },
               "FunctionName": "workshop-fgiovanini-dev-notify-restaurant",
               "Handler": "functions/notify-restaurant.handler",
@@ -433,6 +440,7 @@
               ],
               "Environment": {
                 "Variables": {
+                  "log_level": "DEBUG",
                   "order_events_stream": {
                     "Ref": "orderEventsStream"
                   },
@@ -447,14 +455,14 @@
               "NotifyDashrestaurantLogGroup"
             ]
           },
-          "NotifyDashrestaurantLambdaVersionDn5a7zwzzPP55kAS31eSe6iOii3NaoBytdxD9uFa2lQ": {
+          "NotifyDashrestaurantLambdaVersionvnVK8YejJsGtwuGC4wt0QD3KXrXIE4xpxGY7lEM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "NotifyDashrestaurantLambdaFunction"
               },
-              "CodeSha256": "NAaweTq02Ze7RYtzxgZdVIhQK++CVytSR73bjF4EaME="
+              "CodeSha256": "O72iSU0SWxej3/bVXOP6SKmgrY6omY8Ybu1aP0RQdGs="
             }
           },
           "ApiGatewayRestApi": {
@@ -685,7 +693,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1543670903338": {
+          "ApiGatewayDeployment1543671991558": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1220,31 +1228,31 @@
           "GetDashindexLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashindexLambdaVersionytOC8oxbMz5UlVkuoeHJSABNLB0OCgFdlLd6Vr8w"
+              "Ref": "GetDashindexLambdaVersiontCNeYSu3gMcOxSb0gqhmzxiFt1jAz1dcOSalC0k2Pw"
             }
           },
           "GetDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GetDashrestaurantsLambdaVersionmM28DZYGaJ9Zljrq3mVqclqcvqE71o2tgGMgXjQPDw"
+              "Ref": "GetDashrestaurantsLambdaVersionMjh4lXkWlZKObBLl5E07cheEiAgE8rPeVBmUxrUfco"
             }
           },
           "SearchDashrestaurantsLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SearchDashrestaurantsLambdaVersionUvjeJecdZOp0VSTOODXtZW3mk8QbWMDo8ZvSN979NU"
+              "Ref": "SearchDashrestaurantsLambdaVersionSsq6tBbm9btdTzoRH45dmC8RNnK1tzi1BM4KBos4Ek"
             }
           },
           "PlaceDashorderLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "PlaceDashorderLambdaVersionuwVEEz3G7YKBbeBiJuhq1T5A782rze9XBGvWF3TezY"
+              "Ref": "PlaceDashorderLambdaVersionwzS8jLYzAN5m1s4kkI8FfLBq9BIIt14fkMP1LH8ZCMQ"
             }
           },
           "NotifyDashrestaurantLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "NotifyDashrestaurantLambdaVersionDn5a7zwzzPP55kAS31eSe6iOii3NaoBytdxD9uFa2lQ"
+              "Ref": "NotifyDashrestaurantLambdaVersionvnVK8YejJsGtwuGC4wt0QD3KXrXIE4xpxGY7lEM"
             }
           },
           "ServiceEndpoint": {
@@ -1287,6 +1295,13 @@
         }
       },
       "vpc": {}
+    },
+    "custom": {
+      "stage": "dev",
+      "logLevel": {
+        "prod": "INFO",
+        "default": "DEBUG"
+      }
     },
     "plugins": [
       "serverless-pseudo-parameters",
@@ -1504,11 +1519,10 @@
       },
       "Outputs": {}
     },
-    "layers": {},
     "artifact": "/Users/fernando.giovanini/projects/devternity/production-ready-serverless-workshop-devternity-demo/.serverless/workshop-fgiovanini.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/workshop-fgiovanini/dev/1543670903118-2018-12-01T13:28:23.118Z",
+    "artifactDirectoryName": "serverless/workshop-fgiovanini/dev/1543671991314-2018-12-01T13:46:31.314Z",
     "artifact": "workshop-fgiovanini.zip"
   }
 }
