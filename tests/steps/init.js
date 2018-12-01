@@ -34,6 +34,7 @@ const init = async () => {
 
   console.log('SSM params loaded')
 
+  process.env.AWS_XRAY_CONTEXT_MISSING = 'LOG_ERROR'
   process.env.TEST_ROOT                     = params.url
   process.env.orders_api                    = `${params.url}/orders`
   process.env.restaurants_api               = `${params.url}/restaurants`

@@ -3,12 +3,15 @@ service: workshop-fgiovanini
 plugins:
   - serverless-pseudo-parameters
   - serverless-iam-roles-per-function
+  - serverless-plugin-tracing
 
 custom:
   stage: ${opt:stage, self:provider.stage}
   logLevel:
     prod: INFO
     default: DEBUG
+  serverless-iam-roles-per-function:
+    defaultInherit: true
 
 provider:
   name: aws
@@ -17,6 +20,7 @@ provider:
   region: eu-west-1
   environment:
     log_level: ${self:custom.logLevel.${self:custom.stage}, self:custom.logLevel.default}
+  tracing: true
   tags:
     TEAM: test
 
@@ -27,24 +31,12 @@ provider:
         Fn::GetAtt:
           - restaurantsTable
           - Arn
-
-  # iamRoleStatements:
-  #   - Effect: Allow
-  #     Action: dynamodb:scan
-  #     Resource:
-  #       Fn::GetAtt:
-  #         - restaurantsTable
-  #         - Arn
-  #   - Effect: Allow
-  #     Action: kinesis:PutRecord
-  #     Resource: 
-  #       Fn::GetAtt:
-  #         - orderEventsStream
-  #         - Arn
-  #   - Effect: Allow
-  #     Action: sns:Publish
-  #     Resource: 
-  #       Ref: restaurantNotificationTopic
+    - Effect: "Allow"
+      Action:
+        - "xray:PutTraceSegments"
+        - "xray:PutTelemetryRecords"
+      Resource:
+        - "*"
 
 functions:
   get-index:
